@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História de Yggdrasil</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2f;
+            background-image: url('img/darkAp.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ff4d4d;
+            font-size: 2.5em;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 75px;
+            max-width: 1300px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .content {
+            flex: 1 1 60%;
+            padding-right: 50px;
+        }
+
+        .image-container {
+            padding: 7.5px;
+            flex: 1 1 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 85%;
+            border-radius: 50px;
+        }
+        .introduction {
+            background-color: rgba(49, 40, 32, 0.7);
+            padding: 1px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center; /* Alinha o texto horizontalmente */
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            color: #f0b65f;
+            max-height: 65px; /* Altura fixa */
+            max-width: 100%; /* Largura máxima */
+            display: flex; /* Usando flexbox para alinhamento */
+            justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
+            align-items: center; /* Alinha o conteúdo verticalmente no centro */
+            height: 65px; /* Altura fixa para o contêiner */
+            box-sizing: border-box; /* Inclui padding na largura/altura do contêiner */
+        }
+
+
+        .history {
+            background-color: rgba(49, 40, 32, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-height: 300px; /* Altura fixa */
+            max-width: 100%; /* Largura máxima */
+        }
+
+        .history h2 {
+            color: #f0b65f;
+            border-bottom: 2px solid #f0b65f;
+            padding-bottom: 5px;
+        }
+
+        /* Novo container para Informações Gerais, Atributos e Poderes */
+        .info-container {
+            background-color: rgba(49, 40, 32, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-height: 250px; /* Altura fixa */
+            max-width: 100%; /* Largura máxima */
+            overflow-y: auto; /* Habilita a rolagem vertical */
+        }
+
+        .info-container h2 {
+            color: #f0b65f;
+            border-bottom: 2px solid #f0b65f;
+            padding-bottom: 5px;
+        }
+        /* Estilo para melhorar a rolagem (opcional) */
+    .info-container::-webkit-scrollbar {
+        width: 8px;
+    }
+    .info-container::-webkit-scrollbar-thumb {
+        background-color: #f0b65f;
+        border-radius: 4px;
+    }
+    .info-container::-webkit-scrollbar-track {
+        background: rgba(49, 40, 32, 0.5);
+    }
+        /* Estilo para a tabela rolável */
+        .scroll-table {
+            overflow-y: auto;
+            max-height: 300px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #352511;
+            color: #f0b65f;
+        }
+
+        td {
+            background-color: #312820;
+        }
+        
+        .image-container {
+            flex-direction: column; /* Alinha os itens verticalmente */
+            justify-content: center;
+            align-items: center;
+        }
+        .button-container {
+            margin-top: 15px;
+            text-align: center; /* Centraliza o botão */
+        }       
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0b65f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+            .continue-button:hover {
+            background-color: #f0b65f;
+            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+            }
+
+        footer {
+            background-color: rgba(49, 40, 32, 0.7);
+            color: #fff;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="introduction">
+                <p>Yggdrasil</p>
+            </div>
+
+            <!-- História -->
+            <div class="history">
+                <h2>A História</h2>
+                <p>Nascido no reino oculto de <strong>Zaryndor</strong>, Yggdrasil carregava uma marca profética em seu peito, anunciando destruição e renascimento. Rejeitado por sua família, ele cresceu em um templo vulcânico abandonado, onde fez um pacto com <strong>Ignathar</strong>, o Senhor da Destruição. Esse ritual o transformou em uma entidade poderosa, com asas demoníacas e controle sobre o fogo primordial, mas ao custo de sua humanidade.</p>
+                <p>Com um exército de criaturas forjadas em lava viva, Yggdrasil devastou reinos e busca abrir o <strong>Portal das Chamas Eternas</strong> para libertar os Deuses do Fogo e moldar um novo mundo de caos. Apesar de seu poder, ele é atormentado por memórias de sua antiga humanidade, tornando-o uma figura trágica e impiedosa.</p>
+                <p>Agora, Yggdrasil governa o deserto ardente de <strong>Azhakar</strong>, onde heróis que ousam enfrentá-lo encaram seu ódio implacável e o calor de suas chamas eternas.</p>
+            </div>
+
+            <!-- Informações Gerais, Atributos e Poderes -->
+            <div class="info-container">
+                <h2>Informações Gerais</h2>
+                <ul>
+                    <li><strong>Nome:</strong> Yggdrasil</li>
+                    <li><strong>Raça:</strong> Demônio</li>
+                    <li><strong>Classe:</strong> Senhor das Chamas</li>
+                    <li><strong>Idade:</strong> Imortal</li>
+                    <li><strong>Alinhamento:</strong> Caótico e maligno</li>
+                    <li><strong>Origem:</strong> Zaryndor (Reino Oculto)</li>
+                </ul>
+
+                <h2>Atributos</h2>
+                <div class="scroll-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Atributo</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Força</strong></td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Destreza</strong></td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Constituição</strong></td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inteligência</strong></td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sabedoria</strong></td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carisma</strong></td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Poderes e Habilidades</h2>
+                <ul>
+                    <li>Magia negra devastadora</li>
+                    <li>Controle sobre criaturas sombrias</li>
+                    <li>Imortalidade adquirida por rituais</li>
+                    <li>Manipulação de mentes fracas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="img/ygg.jpg"  alt="Hidrazyl">
+            
+            <!-- Botão de continuar -->
+            <div class="button-container">
+                <a href="inicioDaJornada.html" class="continue-button">Continuar</a>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura.
+    </footer>
+</body>
+</html>

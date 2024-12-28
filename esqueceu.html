@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EldenWood - Recuperação de E-mail</title>
+    <style>
+        body {
+            font-family: Times; /* Fonte padrão */
+            display: flex; /* Flexbox para centralizar */
+            justify-content: center; /* Alinhamento horizontal */
+            align-items: center; /* Alinhamento vertical */
+            height: 100vh; /* Altura da tela */
+            margin: 0; /* Remove margens */
+            background-color: #04f6f6; /* Cor de fundo padrão */
+            background-image: url('img/fundo.jpg'); /* Caminho da imagem */
+            background-size: cover; /* Cobre toda a área */
+            background-position: center; /* Centraliza a imagem */
+            z-index: -1;
+            background-image: url('img/floresta1.jpg'); /* Caminho da sua imagem */
+            background-size: cover; /* A imagem cobre toda a área */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            background-position: center; /* Centraliza a imagem */
+        }
+        
+        div {
+            background: rgba(35, 43, 42, 0.8); /* Cor de fundo com maior opacidade */
+            padding: 20px; /* Espaço interno do container */
+            border-radius: 10px; /* Cantos arredondados */
+            max-width: 400px; /* Largura máxima */
+            width: 100%; /* Ajusta o tamanho ao máximo permitido */
+            text-align: center; /* Centraliza o conteúdo dentro do container */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+        }
+
+        h1 {
+            font-size: 24px; /* Tamanho do título */
+            color: #ffffff; /* Cor do título */
+            margin-bottom: 15px; /* Espaço abaixo do título */
+        }
+        h2 {
+            font-size: 36px; /* Tamanho maior para o título */
+            background: linear-gradient(90deg, #00f, #0f0); /* Degradê de azul para verde */
+            -webkit-background-clip: text; /* Aplica o clip para texto no Safari */
+            -webkit-text-fill-color: transparent; /* Torna a cor do texto transparente */
+            text-align: center; /* Centraliza o texto */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            position: absolute; /* Para posicionar acima do container */
+            top: 15%; /* Coloca o título no meio verticalmente */
+            left: 50%; /* Coloca o título no meio horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta a posição exata para o centro */
+            box-shadow: 2px 2px 10px rgba(24, 0, 0, 0.735); /* Sombra para destacar */
+            border-radius: 8px;
+            letter-spacing: 3px;
+        }
+
+        input[type="email"] {
+            width: 90%; /* Ocupar toda a largura do container */
+            padding: 15px; /* Espaçamento interno do campo */
+            margin-bottom: 20px; /* Espaço abaixo do campo */
+            border: none; /* Remove bordas */
+            border-radius: 33px; /* Cantos arredondados */
+            background: rgba(255, 255, 255, 0.8); /* Cor do fundo do campo */
+            color: #000; /* Cor do texto do campo */
+            font-size: 16px; /* Tamanho da fonte do campo */
+        }
+        
+        button {
+            margin-top: 10px; /* Espaço acima do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            border: none; /* Remove bordas */
+            border-radius: 5px; /* Cantos arredondados */
+            background-color: #475dc2; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            cursor: pointer; /* Muda o cursor para mão */
+            font-size: 16px; /* Tamanho da fonte do botão */
+            transition: background 0.3s; /* Transição suave */
+        }
+
+        button:hover {
+            background-color: #e9661a; /* Cor ao passar o mouse */
+        }
+
+        #alerta {
+            display: none; /* Oculta a mensagem por padrão */
+            color: #ffffff; /* Cor da mensagem de alerta */
+            margin-top: 15px; /* Espaço acima da mensagem */
+        }
+        
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        /* Estilo do botão de menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f698;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Estilo do menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #10efef8a;
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #e9661a;
+        }
+
+        /* Mostrar o menu quando o botão for clicado */
+        .menu.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>EldenWood</h2>
+        <h1>Digite seu e-mail cadastrado:</h1>
+        <input type="email" id="email" placeholder="seuemail@gmail.com" required>
+        <button onclick="enviarEmail()">Enviar</button>
+        <div id="alerta">E-mail de recuperação enviado a: <span id="email-enviado"></span></div>
+    </div> 
+
+    <!-- Botão do menu -->
+    <button class="menu-btn" onclick="toggleMenu()">㊂</button>
+
+    <!-- Menu de navegação -->
+    <div class="menu" id="menu">
+        <a href="loginRpg.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="about.html">Sobre Eldenwood</a>
+        <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+
+    </div>
+
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura.
+    </footer>
+
+    <script>
+        // Função chamada quando o botão "Enviar" é clicado
+        function enviarEmail() {
+            // Obtém o elemento de entrada de e-mail pelo ID
+            const emailInput = document.getElementById('email');
+            
+            // Obtém o elemento de alerta pelo ID
+            const alerta = document.getElementById('alerta');
+            
+            // Obtém o elemento onde o e-mail enviado será mostrado
+            const emailEnviado = document.getElementById('email-enviado');
+
+            // Verifica se o campo de e-mail não está vazio
+            if (emailInput.value) {
+                // Preenche o span com o e-mail digitado
+                emailEnviado.textContent = emailInput.value; 
+                
+                // Altera o estilo do alerta para torná-lo visível
+                alerta.style.display = 'block'; 
+            } else {
+                // Exibe um alerta se o campo estiver vazio
+                alert('Por favor, digite um e-mail.'); 
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

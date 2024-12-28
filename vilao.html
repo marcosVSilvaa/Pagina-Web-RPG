@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EldenWood - Hidrazyl</title>
+    <style>
+        /* Estilo geral da página */
+        body {
+            font-family: Trebuchet, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Estilo do vídeo em segundo plano */
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* Container do vilão */
+        .vilao-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 25%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efeito de hover no container */
+        .vilao-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgb(255, 0, 0);
+        }
+
+        /* Estilo da imagem */
+        .vilao img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Estilo do texto sobre a imagem */
+        .vilao h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.5em;
+            z-index: 2;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Botão "Saiba mais" */
+        .btn-conhecer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            opacity: 0; /* Esconde inicialmente */
+            transition: opacity 0.3s ease; /* Suaviza a transição */
+        }
+
+        /* Botão aparece no hover do container */
+        .vilao-container:hover .btn-conhecer {
+            opacity: 1;
+        }
+
+        /* Rodapé */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+        }
+                /* Botão de menu */
+                .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #970202;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Estilo do menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #7305058a;
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #905701;
+        }
+
+        /* Mostrar o menu quando o botão for clicado */
+        .menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop class="background-video">
+        <source src="img/fogoVideo.mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+
+    <div class="vilao-container">
+        <!-- Informações do vilão -->
+        <div class="vilao">
+            <img src="img/ygg.jpg" alt="Hidrazyl">
+            <h1>Vilão</h1>
+            <a href="vilaoInfo.html" class="btn-conhecer">Continuar</a>
+        </div>
+    </div>
+       <!-- Botão do menu -->
+       <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+       <!-- Menu de navegação -->
+       <div class="menu" id="menu">
+           <a href="loginRpg.html">Login</a>
+           <a href="cadastro.html">Cadastro</a>
+           <a href="esqueceu.html">Esqueci a senha</a>
+           <a href="about.html">Sobre Eldenwood</a>
+           <a href="selecao.html">Personagens</a>
+           <a href="magoInfo.html">Mago</a>
+           <a href="druidaInfo.html">Druida</a>
+           <a href="elfoInfo.html">Elfo</a>
+           <a href="guerreiroInfo.html">Guerreiro</a>
+           <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+       </div>
+
+    <!-- Rodapé com o símbolo de copyright -->
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura.
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

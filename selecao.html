@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EldenWood - Seleção de Personagens</title>
+    <style>
+        /* Estilo geral da página */
+        body {
+            font-family: Trebuchet, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Para evitar barras de rolagem se o vídeo for maior */
+        }
+
+        /* Estilo do vídeo em segundo plano */
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%; /* Ocupa toda a largura da tela */
+            height: 100%; /* Ocupa toda a altura da tela */
+            object-fit: cover; /* Faz o vídeo cobrir toda a tela sem distorção */
+            transform: translate(-50%, -50%); /* Centraliza o vídeo */
+            z-index: -1; /* Garante que o vídeo fique atrás dos outros elementos */
+        }
+
+        /* Container para os 4 personagens */
+        .personagens-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            height: 80%;
+            z-index: 1; /* Garante que o conteúdo dos personagens fique sobre o fundo */
+        }
+
+        /* Estilo individual de cada personagem */
+        .personagem {
+            width: 23%; /* Cada personagem ocupa 1/4 da tela */
+            height: 100%; /* Garante que a div ocupe toda a altura disponível */
+            background-color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 0; /* Remove o padding para a imagem ocupar todo o espaço */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionando transição suave */
+        }
+
+        .personagem h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            margin: 0;
+        }
+
+        .personagem img {
+            width: 100%; /* A imagem vai ocupar toda a largura da div */
+            height: 100%; /* A imagem vai ocupar toda a altura da div */
+            object-fit: cover; /* Garante que a imagem cubra toda a div sem distorcer */
+            object-position: center; /* Centraliza a imagem na div */
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Garante que a imagem fique atrás do texto */
+            transition: filter 0.3s ease; /* Transição suave no efeito de brilho */
+        }
+
+        .btn-selecionar {
+            display: none;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza o botão horizontalmente */
+            z-index: 2;
+        }
+
+        .personagem:hover .btn-selecionar {
+            display: block;
+        }
+
+        /* Efeito de brilho ao passar o mouse */
+        .personagem:hover img {
+            filter: brightness(1.4); /* Aumenta o brilho da imagem */
+        }
+
+        .personagem:hover {
+            transform: scale(1.05); /* Faz a div aumentar de tamanho ao passar o mouse */
+            box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.8); /* Adiciona um brilho suave na borda */
+        }
+
+        /* Estilo do botão de menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f698;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Estilo do menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #10efef8a;
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #e9661a;
+        }
+
+        /* Mostrar o menu quando o botão for clicado */
+        .menu.active {
+            display: block;
+        }
+
+        /* Rodapé */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop class="background-video">
+        <source src="img/fundoPersonagens.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+
+    <div class="personagens-container">
+        <!-- Personagem 1 - Druidas -->
+        <div class="personagem" onclick="selecionarPersonagem('druidaInfo.html')">
+            <h2>Druidas</h2>
+            <img src="img/druidaL.jpg" alt="Druida">
+            <button class="btn-selecionar">Selecionar Personagem</button>
+        </div>
+
+        <!-- Personagem 2 - Guerreiros -->
+        <div class="personagem" onclick="selecionarPersonagem('guerreiroInfo.html')">
+            <h2>Guerreiros</h2>
+            <img src="img/guerreiroL.jpg" alt="Guerreiro">
+            <button class="btn-selecionar">Selecionar Personagem</button>
+        </div>
+
+        <!-- Personagem 3 - Magos -->
+        <div class="personagem" onclick="selecionarPersonagem('magoInfo.html')">
+            <h2>Magos</h2>
+            <img src="img/magoL.jpg" alt="Mago">
+            <button class="btn-selecionar">Selecionar Personagem</button>
+        </div>
+
+        <!-- Personagem 4 - Elfos -->
+        <div class="personagem" onclick="selecionarPersonagem('elfoInfo.html')">
+            <h2>Elfos</h2>
+            <img src="img/elfoL.jpg" alt="Elfo">
+            <button class="btn-selecionar">Selecionar Personagem</button>
+        </div>
+    </div>
+
+    <!-- Botão do menu -->
+    <button class="menu-btn" onclick="toggleMenu()">㊂</button>
+
+    <!-- Menu de navegação -->
+    <div class="menu" id="menu">
+        <a href="loginRpg.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="esqueceu.html">Esqueci a senha</a>
+        <a href="about.html">Sobre Eldenwood</a>
+        <a href="selecao.html">Personagens</a>
+        <a href="magoInfo.html">Mago</a>
+        <a href="druidaInfo.html">Druida</a>
+        <a href="elfoInfo.html">Elfo</a>
+        <a href="guerreiroInfo.html">Guerreiro</a>
+        <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+
+    </div>
+
+    <!-- Rodapé com o símbolo de copyright -->
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura..
+    </footer>
+
+    <script>
+        // Função para adicionar efeito de zoom no personagem selecionado
+        function selecionarPersonagem(url) {
+            // Adiciona o efeito de zoom
+            const personagem = event.currentTarget;
+            personagem.style.transform = 'scale(1.2)';
+            personagem.style.transition = 'transform 0.5s';
+            setTimeout(function() {
+                window.location.href = url; // Redireciona para a página do personagem
+            }, 500); // 500ms de delay para o efeito de zoom
+        }
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>

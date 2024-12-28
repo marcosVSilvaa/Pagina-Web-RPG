@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Eldenwood RPG</title>
+    <style>
+        body {
+            font-family: Trebuchet, sans-serif;
+            font-size: 19px;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+            background-image: url(img/floresta1.jpg); /* Substituir pelo caminho correto */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed; /* Fundo fixo */
+            filter: brightness(70%); /* Diminui o contraste da imagem de fundo */
+        }
+
+        h1 {
+            font-size: 36px; /* Tamanho maior para o título */
+            background: linear-gradient(90deg, rgba(0, 195, 255, 0.783), rgba(146, 26, 232, 0.865)); /* Degradê de azul para verde */
+            -webkit-text-fill-color: rgb(46, 46, 49); /* Torna a cor do texto transparente */
+            text-align: center; /* Centraliza o texto */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            top: 0px; /* Ajuste a distância do topo conforme necessário */
+            box-shadow: 2px 2px 10px rgb(24, 0, 0); /* Sombra para destacar */
+            border-radius: 8px;
+            letter-spacing: 3px;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+            background: linear-gradient(135deg, rgba(52, 5, 98, 0.85), rgba(33, 97, 46, 0.85)); /* Roxo e verde */
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            color: white;
+            background: linear-gradient(135deg, rgba(85, 145, 39, 0.85), rgba(146, 26, 232, 0.85));
+            width: calc(50% - 10px); /* Dois cards por linha */
+            max-width: 500px; /* Limita a largura máxima de cada card */
+            box-sizing: border-box;
+        }
+
+        .card img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.3); /* Efeito de aumento na imagem */
+        }
+
+        .card-info {
+            max-width: 600px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 22px;
+            color: #00f698; /* Azul vibrante */
+        }
+
+        /* Cards das regiões */
+        .regioes {
+            background: linear-gradient(135deg, rgba(52, 5, 98, 0.85), rgba(33, 97, 46, 0.85)); /* Mesmo gradiente do container */
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            width: 90%;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Cards dos personagens */
+        .personagens {
+            background: linear-gradient(135deg, rgba(52, 5, 98, 0.85), rgba(33, 97, 46, 0.85)); /* Mesmo gradiente do container */
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .map {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(52, 5, 98, 0.85), rgba(33, 97, 46, 0.85)); /* Roxo e azul */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+        }
+
+        .map img {
+            max-width: 100%;
+            max-height: 400px; /* Define uma altura máxima proporcional */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .map img:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f698;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: rgb(27, 0, 102);
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #6c00a1;
+        }
+
+        .menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem-vindo ao Eldenwood RPG</h1>
+
+    <div class="container">
+        <p>PG (Role-Playing Game) é um tipo de jogo em que os participantes assumem papéis de personagens fictícios e colaboram para criar histórias interativas. No RPG, os jogadores interpretam seus personagens, tomando decisões que influenciam o desenrolar da trama. As aventuras podem se passar em diversos cenários, como mundos fantásticos, históricos ou futuristas. O jogo é geralmente conduzido por um mestre (ou narrador), que descreve o ambiente e os eventos, enquanto os jogadores interagem com o mundo e entre si, usando regras específicas para resolver conflitos e desafios. Além de ser uma forma de entretenimento, o RPG também é uma ferramenta de desenvolvimento criativo, socialização e trabalho em equipe.</p>
+        <p>Eldenwood é um RPG de fantasia criado com a mais alta tecnologia para oferecer uma experiência imersiva e sem interrupções. O jogo foi desenvolvido com foco em estabilidade, garantindo que não haja travamentos ou lentidão, mesmo em momentos de ação intensa. Sua narrativa rica e gráficos detalhados transportam os jogadores para um mundo mágico cheio de mistérios, desafios e paisagens deslumbrantes. Eldenwood promete redefinir os padrões de qualidade nos jogos RPG modernos, sendo acessível e otimizado para todos os tipos de jogadores.</p>
+    </div>
+
+    <div class="container">
+        <h2>A História de Eldenwood</h2>
+        <p>Eldenwood é mais do que um simples jogo, é uma jornada épica onde heróis improváveis se reúnem para proteger uma terra mágica ameaçada por um terrível vilão. Este é um mundo onde magos, guerreiros, druidas e elfos enfrentam desafios épicos para preservar o equilíbrio da natureza e a energia vital da lendária floresta de Eldenwood.</p>
+    </div>
+
+    <!-- Cards dos personagens -->
+    <div class="personagens">
+        <p>No coração dessa história, quatro personagens desempenham papéis cruciais na luta contra Yggdrasil, um vilão ancestral que deseja drenar a energia vital da floresta para se tornar imortal. Conheça nossos heróis:</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="img/guerreiroL.jpg" alt="Kael, o Guerreiro">
+                <div class="card-info">
+                    <div class="card-title">Kael, o Guerreiro</div>
+                    <p>Um mestre da espada e combatente feroz, Kael é conhecido por sua força inabalável e lealdade ao grupo.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/druidaL.jpg" alt="Theron, o Druida">
+                <div class="card-info">
+                    <div class="card-title">Theron, o Druida</div>
+                    <p>Guardião das florestas e mestre da natureza, Theron possui poderes elementais e cura para proteger seus amigos.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/magoL.jpg" alt="Eryndor, o Mago">
+                <div class="card-info">
+                    <div class="card-title">Eryndor, o Mago</div>
+                    <p>Com uma mente afiada e magia poderosa, Eryndor usa feitiços antigos para proteger seus aliados e enfrentar as sombras.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/elfoL.jpg" alt="Lytha, a Elfa">
+                <div class="card-info">
+                    <div class="card-title">Lytha, a Elfa</div>
+                    <p>Com habilidades excepcionais de arqueira, Lytha é ágil, perspicaz e possui uma conexão única com a floresta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards das regiões -->
+    <div class="regioes">
+        <h3>Explore os lugares mágicos de Eldenwood:</h3>
+        <p>Em sua jornada, os heróis enfrentam desafios em locais misteriosos e perigosos. Conheça algumas dessas regiões mágicas:</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="img/clareiraaa.jpg" alt="Clareira da Aurora">
+                <div class="card-info">
+                    <div class="card-title">Clareira da Aurora</div>
+                    <p>Um local mágico onde a luz da aurora brilha com intensidade, mas esconde perigos que surgem com o amanhecer.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/ruinasss.jpg" alt="Ruínas Ancestrais">
+                <div class="card-info">
+                    <div class="card-title">Ruínas Ancestrais</div>
+                    <p>Antigos templos e cidades abandonadas, onde os vestígios da civilização perdida de Eldenwood ainda ecoam, mas também abrigam os mais temíveis inimigos.</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 100%; max-width: 500px;">
+                <img src="img/lagoo.jpg" alt="Lago dos Ecos">
+                <div class="card-info">
+                    <div class="card-title">Lago dos Ecos</div>
+                    <p>Um lago místico cujas águas refletem a verdadeira alma dos viajantes que se aproximam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção do mapa -->
+    <div class="map">
+        <h2>Mapa de Eldenwood</h2>
+        <img src="img/mapa.png" alt="Mapa de Eldenwood">
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">㊂</button>
+
+    <div class="menu" id="menu">
+        <a href="loginRpg.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="esqueceu.html">Esqueci a senha</a>
+        <a href="selecao.html">Personagens</a>
+        <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

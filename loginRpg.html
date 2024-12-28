@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+        font-family: Trebuchet;
+        font-size: 19px;
+        height: 100vh; 
+        overflow: hidden; /* Evita rolagem */
+        display: flex; /* Flexbox para centralizar */
+        justify-content: center; /* Alinhamento horizontal */
+        align-items: center; /* Alinhamento vertical */
+        color: #47403a; /* Cor do texto */
+        position: relative; /* Para posicionar o título em relação ao body */
+        /* ---------- ------------ -----Fundo----- ----------- ----------- ---------  */
+        background-image: url('img/telaLogin.jpg'); /* Caminho da sua imagem */
+        background-size: cover; /* A imagem cobre toda a área */
+        background-repeat: no-repeat; /* Não repete a imagem */
+        background-position: center; /* Centraliza a imagem */
+        }
+
+        h1 {
+            font-size: 36px; /* Tamanho maior para o título */
+            background: linear-gradient(90deg, rgba(0, 195, 255, 0.783), rgba(146, 26, 232, 0.865)); /* Degradê de azul para verde */
+            -webkit-text-fill-color: rgb(46, 46, 49); /* Torna a cor do texto transparente */
+            text-align: center; /* Centraliza o texto */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            position: absolute; /* Para posicionar acima do container */
+            top: 0px; /* Ajuste a distância do topo conforme necessário */
+            box-shadow: 2px 2px 10px rgb(24, 0, 0); /* Sombra para destacar */
+            border-radius: 8px;
+            letter-spacing: 3px;
+        }
+
+        /* Estilo para o container do formulário */
+        .container {
+            background: rgba(11, 238, 238, 0.61); 
+            padding: 20px; /* Aumenta o espaço interno do container */
+            border-radius: 10px; /* Cantos arredondados */
+            max-width: 400px; /* Largura máxima */
+            width: 90%; /* Ajusta o tamanho ao máximo permitido */
+            text-align: center; /* Centraliza o conteúdo dentro do container */
+            margin-bottom: 8px;
+        }
+
+        /* Estilo para o título do formulário */
+        .container h2 {
+            margin-bottom: 15px; /* Espaço abaixo do título */
+        }
+
+        /* Estilo para os campos de entrada */
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: 90%; /* Ocupa toda a largura do container */
+            padding: 15px; /* Espaçamento interno do campo */
+            margin-bottom: 20px; /* Espaço abaixo do campo */
+            border: none;
+            border-radius: 33px; /* Cantos arredondados */
+            background: #31050532; /* Cor do fundo do campo */
+            color: #930000; /* Cor do texto do campo */
+        }
+
+        /* Estilo para o botão */
+        .container button {
+            width: 100%; /* Ocupa toda a largura do container */
+            padding: 8px; /* Espaçamento interno do botão */
+            border: none;
+            border-radius: 5px;
+            background-color: #4751c2; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            font-size: 20px; /* Tamanho da fonte */
+            cursor: pointer; /* Faz o cursor virar a "mãozinha" ao passar em cima */
+            transition: background 0.5s; /* Efeito suave ao passar o mouse */
+        }
+
+        /* Efeito de hover no botão */
+        .container button:hover {
+            background-color: #e9661a; /* Cor mais clara ao passar o mouse */
+        }
+
+        /* Estilo para o link de login */
+        .container p {
+            margin-top: 10px; /* Espaço acima do link */
+        }
+
+        /* Menu de navegação */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f698;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Estilo do menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #10efef8a;
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #e9661a;
+        }
+
+        /* Mostrar o menu quando o botão for clicado */
+        .menu.active {
+            display: block;
+        }
+
+        footer {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+        }        
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao login do RPG</h1>
+    <!--toda essa div é meu cadastro, (inserir css)---------------------------------------------------------------->
+    <div class="container"> <!--toda essa div é meu cadastro, (inserir css)-->
+        <h2>Login</h2>
+        <form id="cadastro-form">
+            <label for="email">Email Cadastrado:</label>
+            <input type="email" id="email" placeholder="Digite seu email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+            <button class="bottom-btn" onclick="window.location.href='about.html'">Entrar</button>
+
+        </form>
+        <p>Esqueceu a senha? <a href="esqueceu.html">Clique aqui</a></p>
+        <p>Não tem cadastro? <a href="cadastro.html">Cadastrar</a></p>
+    </div>
+    <!--toda essa div é meu cadastro, (inserir css)---------------------------------------------------------------->
+
+    <!-- Menu de navegação -->
+    <button class="menu-btn" onclick="toggleMenu()">㊂</button>
+
+    <div class="menu" id="menu">
+        <a href="loginRpg.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="esqueceu.html">Esqueci a senha</a>
+        <a href="about.html">Sobre Eldenwood</a>
+        <a href="selecao.html">Personagens</a>
+        <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+
+        
+        
+    </div>
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura.
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

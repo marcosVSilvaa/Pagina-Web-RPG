@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EldenWood - Druida</title>
+    <style>
+        /* Estilo geral da página */
+        body {
+            font-family: Trebuchet, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Estilo da imagem de fundo */
+        .background-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* Container para o conteúdo central */
+        .content-container {
+            width: 70%;
+            max-width: 600px;
+            height: 80%;
+            left: 5%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            z-index: 1;
+            text-align: center;
+            position:relative;
+        }
+
+        /* Estilo da imagem do druida fora do container */
+        .druida-image {
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            width: 20%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            object-fit: cover;
+        }
+
+        /* Estilo do texto sobre o druida */
+        .druida-text {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Estilo da tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Rodapé */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        /* Botão de menu */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f698;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 30px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Estilo do menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #10efef8a;
+            color: white;
+            padding-top: 50px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        .menu a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #1ae9ae;
+        }
+
+        /* Mostrar o menu quando o botão for clicado */
+        .menu.active {
+            display: block;
+        }
+        .bottom-btn {
+    position: fixed;
+    bottom: 20px; /* Distância do fundo */
+    right: 20px; /* Distância da direita */
+    width: 120px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+    background-color: #00f698; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remove bordas */
+    border-radius: 25px; /* Bordas arredondadas */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    cursor: pointer; /* Cursor de mão */
+    z-index: 10; /* Garante que o botão fique visível acima de outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efeito de hover para o botão */
+.bottom-btn:hover {
+    background-color: #00f635; /* Cor de fundo quando o mouse passa por cima */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Imagem de fundo -->
+    <img src="img/fundoDruida.jpg" alt="Fundo Druida" class="background-image">
+
+    <!-- Imagem do Druida posicionada fora do container -->
+    <img src="img/druida2.jpg" alt="Druida" class="druida-image">
+
+    <!-- Container com a descrição sobre o druida -->
+    <div class="content-container">
+        <h2>O Druida de EldenWood</h2>
+        <div class="druida-text">
+            <p>
+                O druida de EldenWood é um ser conectado à natureza, com habilidades que envolvem a manipulação das forças naturais do mundo. Sua jornada é marcada pelo equilíbrio entre o mundo natural e as criaturas que nele habitam. Com o poder de se comunicar com os elementos, o druida usa sua sabedoria ancestral para proteger as florestas e os animais de EldenWood. Conhecido por sua habilidade de transformar e manipular a vida, o druida é um guardião das forças naturais e do equilíbrio entre as forças da natureza.
+            </p>
+        </div>
+        
+        <!-- Tabela com as características do druida -->
+        <h3>Características do Druida</h3>
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>Força</td>
+                <td>Média, com foco em habilidades mágicas e controle sobre a natureza.</td>
+            </tr>
+            <tr>
+                <td>Poder</td>
+                <td>Alto, capaz de manipular a natureza e curar com seus poderes místicos.</td>
+            </tr>
+            <tr>
+                <td>Altura</td>
+                <td>Geralmente entre 1,65m e 1,90m.</td>
+            </tr>
+            <tr>
+                <td>Idade</td>
+                <td>Comumente entre 40 e 70 anos, com uma vida marcada pela sabedoria e experiência.</td>
+            </tr>
+            <tr>
+                <td>Poderes</td>
+                <td>Transformação em animais, controle do clima, cura e manipulação das plantas.</td>
+            </tr>
+            <tr>
+                <td>Inteligência</td>
+                <td>Alta, com vasto conhecimento sobre os elementos naturais e a vida selvagem.</td>
+            </tr>
+            <tr>
+                <td>Habilidades Especiais</td>
+                <td>Transformação de formas, controle sobre as criaturas da floresta, feitiços de cura.</td>
+            </tr>
+            <tr>
+                <td>Origem</td>
+                <td>Descendente de uma antiga linhagem druídica ou em sintonia profunda com a natureza.</td>
+            </tr>
+            <tr>
+                <td>Equipamento</td>
+                <td>Varinha druídica, bastão de madeira, ervas místicas e talismãs de proteção.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Botão do menu -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <!-- Menu de navegação -->
+    <div class="menu" id="menu">
+        <a href="loginRpg.html">Login</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="esqueceu.html">Esqueci a senha</a>
+        <a href="about.html">Sobre Eldenwood</a>
+        <a href="selecao.html">Personagens</a>
+        <a href="magoInfo.html">Mago</a>
+        <a href="druidaInfo.html">Druida</a>
+        <a href="elfoInfo.html">Elfo</a>
+        <a href="guerreiroInfo.html">Guerreiro</a>
+        <a href="https://www.temu.com/br/ul/kuiper/un2.html?_p_rfs=1&subj=un-search-web&_p_jump_id=960&_x_vst_scene=adg&search_key=loja%20de%20rpg&_x_ads_channel=bing&_x_ads_sub_channel=search&_x_ads_account=176727729&_x_ads_set=521333190&_x_ads_id=1321615373643800&_x_ads_creative_id=82601189219855&_x_ns_source=o&_x_ns_msclkid=43ac3735d3a31fbafa1a50750d5669b3&_x_ns_match_type=b&_x_ns_bid_match_type=bb&_x_ns_query=loja%20rpg&_x_ns_keyword=loja%20de%20rpg&_x_ns_device=c&_x_ns_targetid=kwd-82602102599725%3Aloc-20&_x_ns_extensionid=&msclkid=43ac3735d3a31fbafa1a50750d5669b3&adg_ctx=f-ce8316a4">Acesse nossa Loja</a>
+
+    </div>
+    <button class="bottom-btn" onclick="window.location.href='vilao.html'">Avançar</button>
+
+    <!-- Rodapé com o símbolo de copyright -->
+    <footer>
+        EldenWood &copy; 2024. Todos os direitos reservados à Kagura.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
